@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SaveIcon from '@mui/icons-material/Save';
@@ -16,6 +17,8 @@ type Props = {
 };
 
 const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
+  const theme = useTheme();
+
   const [updateValue, setUpdatedValue] = useState(item?.value || '');
 
   useEffect(() => {
@@ -75,7 +78,8 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           onClick={handleOnClose}
           variant='outlined'
           startIcon={<CancelIcon />}
-          backgroundColor='#594D9E'
+          // backgroundColor='#594D9E'
+          backgroundColor={theme.palette.primary.main}
         />
 
         <CustomButton

@@ -10,7 +10,7 @@ import { LocalStorageItem } from '../../../types';
 import { StyledTableCell, StyledTableContainer, StyledTableRow } from './styles';
 
 import DeleteConfirmationModal from '../../ui/delete-confirmation-modal';
-import EditItemModal from '../../ui/edit-modal';
+import EditItemModal from '../../ui/edit-item-modal';
 
 type Props = {
   localStorageItems: LocalStorageItem[];
