@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Local Storage Manager",
+  "version": "1.0",
+  "description": "A browser extension for managing local storage.",
+  "permissions": ["storage", "activeTab", "tabs"],
+  "action": {
+    "default_popup": "extension/popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["extension/content.js"]
+    }
+  ]
+}
+

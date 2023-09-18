@@ -1,0 +1,14 @@
+{
+  // Extension: Prettier
+  "prettier.requireConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // Extension: Git
+  "git.rebaseWhenSync": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+
+  // Extension: cSpell
+  "cSpell.words": ["postbuild"]
+}
