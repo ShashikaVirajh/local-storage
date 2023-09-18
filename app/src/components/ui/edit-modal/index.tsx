@@ -1,11 +1,12 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
-import { Dialog, DialogActions, DialogContent, TextareaAutosize, Typography } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
+import { Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SaveIcon from '@mui/icons-material/Save';
 import CustomButton from '../custom-button';
 
 import { LocalStorageItem } from '../../../types';
+import CustomTextAreaInput from '../custom-text-area-input';
 
 type Props = {
   open: boolean;
@@ -36,8 +37,8 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
     handleOnClose();
   };
 
-  const handleUpdateValue = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setUpdatedValue(e.target.value);
+  const handleUpdateValue = (value: string) => {
+    setUpdatedValue(value);
   };
 
   return (
@@ -48,6 +49,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
       fullWidth={true}
       PaperProps={{
         style: {
+          backgroundColor: '#1E2235',
           maxWidth: '500px',
           margin: 'auto',
         },
@@ -57,27 +59,14 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
         sx={{
           overflowX: 'hidden',
           overflowY: 'auto',
-          maxHeight: '400px',
-          padding: '8px 16px',
+          padding: '16px',
         }}
       >
-        <Typography variant='h5' color='GrayText' mb={2}>
+        <Typography variant='h5' color='GrayText' mb={1}>
           {item?.key.toUpperCase()}
         </Typography>
 
-        <TextareaAutosize
-          style={{
-            width: '100%',
-            padding: '10px',
-            boxSizing: 'border-box',
-            wordBreak: 'break-all',
-            whiteSpace: 'normal',
-            border: '1px solid #ccc',
-            borderRadius: 1,
-          }}
-          value={updateValue}
-          onChange={handleUpdateValue}
-        />
+        <CustomTextAreaInput value={updateValue} onChange={handleUpdateValue} />
       </DialogContent>
 
       <DialogActions sx={{ padding: '8px 16px' }}>
@@ -86,6 +75,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           onClick={handleOnClose}
           variant='outlined'
           startIcon={<CancelIcon />}
+          backgroundColor='#594D9E'
         />
 
         <CustomButton
@@ -94,6 +84,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           variant='contained'
           disabled={!updateValue}
           startIcon={<SaveIcon />}
+          backgroundColor='#b71812'
         />
       </DialogActions>
     </Dialog>
