@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Local Storage Manager",
+  "name": "Local Storage",
   "version": "1.0",
   "description": "A browser extension for managing local storage.",
   "permissions": ["storage", "activeTab", "tabs"],

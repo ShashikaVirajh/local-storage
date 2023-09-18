@@ -1,1 +1,1 @@
-console.log('Local Storage Manager Background Script is Running...');
+console.log('Local Storage Background Script is Running...');
