@@ -69,9 +69,8 @@ const StorageItemsList: FC<Props> = ({
     setSearchQuery('');
   };
 
-  const deleteAllItemsTitle = 'Delete All Local Storage Items?';
-  const deleteAllItemsMessage =
-    'Permanently delete all the local storage items. Are you absolutely certain you want to proceed?';
+  const deleteAllItemsTitle = 'Clear Local Storage?';
+  const deleteAllItemsMessage = 'Do you want to permanently delete all the local storage items?';
 
   return (
     <ContentWrapper>

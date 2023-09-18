@@ -41,13 +41,23 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
   };
 
   return (
-    <Dialog open={open} sx={{ maxWidth: 720 }} onClose={onClose}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth='sm'
+      fullWidth={true}
+      PaperProps={{
+        style: {
+          maxWidth: '500px',
+          margin: 'auto',
+        },
+      }}
+    >
       <DialogContent
         sx={{
           overflowX: 'hidden',
           overflowY: 'auto',
           maxHeight: '400px',
-          minWidth: '400px',
           padding: '8px 16px',
         }}
       >

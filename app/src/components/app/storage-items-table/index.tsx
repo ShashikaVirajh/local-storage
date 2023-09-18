@@ -71,7 +71,7 @@ const StorageItemsTable: FC<Props> = ({
   };
 
   const deleteItemTitle = 'Delete Local Storage Item';
-  const deleteItemMessage = `Do you want to permanently  delete '${itemKeyToDelete}' item from the local storage?`;
+  const deleteItemMessage = `Do you want to delete '${itemKeyToDelete}' from the local storage?`;
 
   return (
     <>

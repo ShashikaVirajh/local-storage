@@ -27,13 +27,27 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
-      <DialogTitle variant='h6' fontWeight='600' color='primary'>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth='sm'
+      fullWidth={true}
+      PaperProps={{
+        style: {
+          backgroundColor: '#1E2235',
+          maxWidth: '300px',
+          margin: 'auto',
+        },
+      }}
+    >
+      <DialogTitle variant='h6' fontWeight='600' color='#FFFFFF'>
         {title}
       </DialogTitle>
 
       <DialogContent>
-        <DialogContentText>{message}</DialogContentText>
+        <DialogContentText fontSize={14} lineHeight={1.4} color='#FFFFFF'>
+          {message}
+        </DialogContentText>
       </DialogContent>
 
       <DialogActions>
@@ -42,7 +56,7 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
           startIcon={<CancelIcon />}
           onClick={onClose}
           variant='contained'
-          color='primary'
+          backgroundColor='#594D9E'
         />
 
         <CustomButton
@@ -50,7 +64,7 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
           startIcon={<CheckCircleIcon />}
           onClick={handleOnConfirm}
           variant='contained'
-          color='error'
+          backgroundColor='#b71812'
         />
       </DialogActions>
     </Dialog>
