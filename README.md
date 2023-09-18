@@ -2,7 +2,7 @@
 
 Manage your browser's local storage with a slick UI, built with love using React, TypeScript, and MUI.
 
-![Local Storage Extension Logo](./icons/icon128.png)
+![Local Storage Extension Logo](./app/src/logo/logo.png)
 
 
 ## Description
