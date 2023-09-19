@@ -72,7 +72,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
         <CustomTextAreaInput value={updateValue} onChange={handleUpdateValue} />
       </DialogContent>
 
-      <DialogActions sx={{ padding: '8px 16px' }}>
+      <DialogActions sx={{ padding: '16px' }}>
         <CustomButton
           text='Cancel'
           onClick={handleOnClose}

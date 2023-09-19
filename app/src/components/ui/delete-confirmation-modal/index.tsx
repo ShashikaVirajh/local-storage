@@ -9,7 +9,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 
 import CancelIcon from '@mui/icons-material/Cancel';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import CustomButton from '../custom-button';
 
@@ -47,13 +47,13 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
         {title}
       </DialogTitle>
 
-      <DialogContent>
+      <DialogContent sx={{ padding: '16px' }}>
         <DialogContentText fontSize={14} lineHeight={1.4} color={theme.colors.text.default}>
           {message}
         </DialogContentText>
       </DialogContent>
 
-      <DialogActions>
+      <DialogActions sx={{ padding: '16px' }}>
         <CustomButton
           text='Cancel'
           startIcon={<CancelIcon />}
@@ -64,7 +64,7 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
 
         <CustomButton
           text='Delete'
-          startIcon={<CheckCircleIcon />}
+          startIcon={<DeleteIcon />}
           onClick={handleOnConfirm}
           variant='contained'
           backgroundColor={theme.colors.danger}
