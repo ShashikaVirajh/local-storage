@@ -5,7 +5,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { LocalStorageItem } from '../../../types';
 import { Messages } from '../../../constants';
-
 import StorageItemsTable from '../storage-items-table';
 import DeleteConfirmationModal from '../../ui/delete-confirmation-modal';
 import ContentWrapper from '../../ui/content-wrapper';

@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Grid, IconButton, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import CloseIcon from '@mui/icons-material/Close';
 
+import { useTheme } from '@mui/material/styles';
 import { Messages } from '../../../constants';
 import { Tab } from '../../../types';
+import CloseIcon from '@mui/icons-material/Close';
 
 type Props = {
   tab: Tab | null;
