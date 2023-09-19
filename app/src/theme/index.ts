@@ -1,9 +1,17 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#594D9E',
+  palette: {},
+  colors: {
+    main: '#594D9E',
+    danger: '#B71812',
+    text: {
+      default: '#FFFFFF',
+      danger: '#B71812',
+    },
+    background: {
+      default: '#201E2B',
+      paper: '#1E2235',
     },
   },
 });

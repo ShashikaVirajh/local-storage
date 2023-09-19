@@ -78,8 +78,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           onClick={handleOnClose}
           variant='outlined'
           startIcon={<CancelIcon />}
-          // backgroundColor='#594D9E'
-          backgroundColor={theme.palette.primary.main}
+          backgroundColor='#594D9E'
         />
 
         <CustomButton

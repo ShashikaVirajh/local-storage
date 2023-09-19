@@ -45,7 +45,7 @@ const HeaderContent: FC<Props> = ({ tab }) => {
           style={{ marginRight: '16px' }}
         />
 
-        <Typography variant='h1' fontSize={20} fontWeight={400} letterSpacing={0.4} color='#FFF'>
+        <Typography variant='h1' fontSize={20} fontWeight={400} letterSpacing={0.4} color='#FFFFFF'>
           {Messages.Title}
         </Typography>
       </Grid>
@@ -69,7 +69,13 @@ const HeaderContent: FC<Props> = ({ tab }) => {
             />
           )}
 
-          <Typography variant='h1' fontSize={12} fontWeight={400} lineHeight='normal' color='#FFF'>
+          <Typography
+            variant='h1'
+            fontSize={12}
+            fontWeight={400}
+            lineHeight='normal'
+            color='#FFFFFF'
+          >
             {extractMainUrl(tab?.url.toUpperCase())}
           </Typography>
         </Grid>
