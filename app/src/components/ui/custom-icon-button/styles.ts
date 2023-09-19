@@ -1,12 +1,12 @@
 import { IconButton, lighten, styled } from '@mui/material';
 
 export const StyledIconButton = styled(IconButton)<{ backgroundColor?: string }>(
-  ({ theme, backgroundColor = '#594D9E' }) => ({
+  ({ theme, backgroundColor = theme.colors.main }) => ({
     backgroundColor: backgroundColor,
-    color: '#FFFFFF',
+    color: theme.colors.text.default,
     '&:hover': {
       backgroundColor: lighten(backgroundColor, 0.1),
-      color: lighten('#FFFFFF', 0.1),
+      color: lighten(theme.colors.text.default, 0.1),
     },
     '&.Mui-disabled': {
       backgroundColor: lighten(backgroundColor, 0.2),

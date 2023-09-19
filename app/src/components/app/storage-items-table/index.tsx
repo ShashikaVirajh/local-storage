@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { Grid, IconButton, Table, TableBody, TableHead, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -23,6 +24,8 @@ const StorageItemsTable: FC<Props> = ({
   onEditStorageItem,
   onDeleteStorageItem,
 }) => {
+  const theme = useTheme();
+
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [isDeleteItemModalOpen, setIsDeleteItemModalOpen] = useState(false);
   const [isEditItemModalOpen, setIsEditItemModalOpen] = useState(false);
@@ -141,7 +144,7 @@ const StorageItemsTable: FC<Props> = ({
                       sx={{ py: 0, px: 0.3 }}
                       onClick={(): void => openDeleteItemModal(item.key)}
                     >
-                      <DeleteIcon fontSize='inherit' sx={{ color: '#b71812' }} />
+                      <DeleteIcon fontSize='inherit' sx={{ color: theme.colors.danger }} />
                     </IconButton>
                   </Grid>
                 </StyledTableCell>

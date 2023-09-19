@@ -52,7 +52,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
       fullWidth={true}
       PaperProps={{
         style: {
-          backgroundColor: '#1E2235',
+          backgroundColor: theme.colors.background.paper,
           maxWidth: '500px',
           margin: 'auto',
         },
@@ -78,7 +78,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           onClick={handleOnClose}
           variant='outlined'
           startIcon={<CancelIcon />}
-          backgroundColor='#594D9E'
+          backgroundColor={theme.colors.main}
         />
 
         <CustomButton
@@ -87,7 +87,7 @@ const EditItemModal: FC<Props> = ({ open, onClose, onConfirm, item }) => {
           variant='contained'
           disabled={!updateValue}
           startIcon={<SaveIcon />}
-          backgroundColor='#b71812'
+          backgroundColor={theme.colors.background.danger}
         />
       </DialogActions>
     </Dialog>

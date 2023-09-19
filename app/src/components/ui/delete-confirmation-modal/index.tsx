@@ -6,6 +6,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -21,6 +22,8 @@ type Props = {
 };
 
 const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, message }) => {
+  const theme = useTheme();
+
   const handleOnConfirm = (): void => {
     onConfirm();
     onClose();
@@ -34,18 +37,18 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
       fullWidth={true}
       PaperProps={{
         style: {
-          backgroundColor: '#1E2235',
+          backgroundColor: theme.colors.background.paper,
           maxWidth: '300px',
           margin: 'auto',
         },
       }}
     >
-      <DialogTitle variant='h6' fontWeight='600' color='#FFFFFF'>
+      <DialogTitle variant='h6' fontWeight='600' color={theme.colors.text.default}>
         {title}
       </DialogTitle>
 
       <DialogContent>
-        <DialogContentText fontSize={14} lineHeight={1.4} color='#FFFFFF'>
+        <DialogContentText fontSize={14} lineHeight={1.4} color={theme.colors.text.default}>
           {message}
         </DialogContentText>
       </DialogContent>
@@ -56,7 +59,7 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
           startIcon={<CancelIcon />}
           onClick={onClose}
           variant='contained'
-          backgroundColor='#594D9E'
+          backgroundColor={theme.colors.main}
         />
 
         <CustomButton
@@ -64,7 +67,7 @@ const DeleteConfirmationModal: FC<Props> = ({ open, onClose, onConfirm, title, m
           startIcon={<CheckCircleIcon />}
           onClick={handleOnConfirm}
           variant='contained'
-          backgroundColor='#b71812'
+          backgroundColor={theme.colors.danger}
         />
       </DialogActions>
     </Dialog>

@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, useState } from 'react';
 import { Avatar, Box, Chip, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { LocalStorageItem } from '../../../types';
@@ -24,6 +25,8 @@ const StorageItemsList: FC<Props> = ({
   DeleteLocalStorageItem,
   clearAllItems,
 }) => {
+  const theme = useTheme();
+
   const [searchQuery, setSearchQuery] = useState('');
   const [isClearStorageModalOpen, setIsClearStorageModalOpen] = useState(false);
 
@@ -95,7 +98,11 @@ const StorageItemsList: FC<Props> = ({
           <Grid item>
             <Chip
               avatar={<Avatar>{filteredItems?.length}</Avatar>}
-              sx={{ fontSize: 12, color: '#FFFFFF', backgroundColor: '#594D9E' }}
+              sx={{
+                fontSize: 12,
+                color: theme.colors.text.default,
+                backgroundColor: theme.colors.main,
+              }}
               label={itemsMessage}
             />
           </Grid>
@@ -105,7 +112,7 @@ const StorageItemsList: FC<Props> = ({
               text='Clear Storage'
               onClick={openClearStorageModal}
               variant='contained'
-              backgroundColor='#b71812'
+              backgroundColor={theme.colors.background.danger}
               startIcon={<DeleteForeverIcon />}
             />
           </Grid>

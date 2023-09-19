@@ -100,7 +100,7 @@ const AddStorageItem: FC<Props> = ({ localStorageItems, SaveLocalStorageItem }) 
           fontSize={14}
           marginTop={1}
           letterSpacing={0.8}
-          color={theme.palette.error.dark}
+          color={theme.colors.text.danger}
         >
           {Messages.DuplicateStorageKey}
         </Typography>

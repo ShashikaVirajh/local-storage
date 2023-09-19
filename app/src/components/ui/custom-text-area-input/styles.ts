@@ -1,21 +1,21 @@
 import { TextareaAutosize, styled } from '@mui/material';
 
-export const StyledTextarea = styled(TextareaAutosize)({
+export const StyledTextarea = styled(TextareaAutosize)(({ theme }) => ({
   width: '100%',
   padding: '10px',
   boxSizing: 'border-box',
   wordBreak: 'break-all',
   whiteSpace: 'normal',
-  color: '#FFFFFF',
+  color: theme.colors.text.default,
   fontSize: 14,
-  backgroundColor: '#201E2B',
-  border: '1px solid #594D9E',
+  backgroundColor: theme.colors.background.default,
+  border: `1px solid ${theme.colors.main}`,
   borderRadius: '4px',
   '&:hover': {
-    borderColor: '#594D9E',
+    borderColor: theme.colors.main,
   },
   '&:focus': {
-    borderColor: '#594D9E',
+    borderColor: theme.colors.main,
     outline: 'none',
   },
-});
+}));

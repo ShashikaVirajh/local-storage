@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Grid, IconButton, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { Messages } from '../../../constants';
@@ -10,6 +11,8 @@ type Props = {
 };
 
 const HeaderContent: FC<Props> = ({ tab }) => {
+  const theme = useTheme();
+
   const handleClose = (): void => {
     window.close();
   };
@@ -45,7 +48,13 @@ const HeaderContent: FC<Props> = ({ tab }) => {
           style={{ marginRight: '16px' }}
         />
 
-        <Typography variant='h1' fontSize={20} fontWeight={400} letterSpacing={0.4} color='#FFFFFF'>
+        <Typography
+          variant='h1'
+          fontSize={20}
+          fontWeight={400}
+          letterSpacing={0.4}
+          color={theme.colors.text?.default}
+        >
           {Messages.Title}
         </Typography>
       </Grid>
@@ -74,7 +83,7 @@ const HeaderContent: FC<Props> = ({ tab }) => {
             fontSize={12}
             fontWeight={400}
             lineHeight='normal'
-            color='#FFFFFF'
+            color={theme.colors.text?.default}
           >
             {extractMainUrl(tab?.url.toUpperCase())}
           </Typography>

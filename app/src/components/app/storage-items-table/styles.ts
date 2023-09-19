@@ -4,19 +4,19 @@ export const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
-export const StyledTableCell = styled(TableCell)({
+export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   paddingTop: '12px',
   paddingBottom: '12px',
   borderTop: 'none',
   borderBottom: 'none',
-  color: '#FFFFFF',
+  color: theme.colors.text.default,
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: 'rgba(30, 30, 30, 0.9)',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 12,
   },
-});
+}));
 
 export const StyledTableRow = styled(TableRow)({
   borderBottom: 'none',
