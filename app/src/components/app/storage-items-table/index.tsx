@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { Grid, IconButton, Table, TableBody, TableHead, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import CopyIcon from '@mui/icons-material/ContentCopy';
@@ -9,7 +8,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import { LocalStorageItem } from '../../../types';
 import { StyledTableCell, StyledTableContainer, StyledTableRow } from './styles';
-
+import { copyToClipboard } from '../../../utils';
 import DeleteConfirmationModal from '../../ui/delete-confirmation-modal';
 import EditItemModal from '../../ui/edit-item-modal';
 
@@ -29,7 +28,7 @@ const StorageItemsTable: FC<Props> = ({
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [isDeleteItemModalOpen, setIsDeleteItemModalOpen] = useState(false);
   const [isEditItemModalOpen, setIsEditItemModalOpen] = useState(false);
-  const [itemKeyToDelete, setItemKeyToDelete] = useState<string>();
+  const [itemToDelete, setItemToDelete] = useState<string>();
   const [itemToUpdate, setItemToUpdate] = useState<LocalStorageItem>();
 
   const openEditItemModal = (item: LocalStorageItem): void => {
@@ -48,7 +47,7 @@ const StorageItemsTable: FC<Props> = ({
 
   const openDeleteItemModal = (key: string): void => {
     setIsDeleteItemModalOpen(true);
-    setItemKeyToDelete(key);
+    setItemToDelete(key);
   };
 
   const closeDeleteItemModal = (): void => {
@@ -56,25 +55,18 @@ const StorageItemsTable: FC<Props> = ({
   };
 
   const handleDeleteItem = (): void => {
-    if (itemKeyToDelete) {
-      onDeleteStorageItem(itemKeyToDelete);
+    if (itemToDelete) {
+      onDeleteStorageItem(itemToDelete);
       setIsDeleteItemModalOpen(false);
     }
   };
 
-  const handleCopyItem = async (item: LocalStorageItem): Promise<void> => {
-    if (item) {
-      try {
-        await navigator.clipboard.writeText(item.value);
-        setCopiedKey(item.key);
-      } catch (error) {
-        console.error('Failed to copy text:', error);
-      }
-    }
+  const handleCopyToClipboard = async (item: LocalStorageItem) => {
+    await copyToClipboard(item, () => setCopiedKey(item.key));
   };
 
   const deleteItemTitle = 'Delete Local Storage Item';
-  const deleteItemMessage = `Do you want to delete '${itemKeyToDelete}' from the local storage?`;
+  const deleteItemMessage = `Do you want to delete '${itemToDelete}' from the local storage?`;
 
   return (
     <>
@@ -122,7 +114,7 @@ const StorageItemsTable: FC<Props> = ({
                     <IconButton
                       size='small'
                       sx={{ py: 0, px: 0.3 }}
-                      onClick={async (): Promise<void> => handleCopyItem(item)}
+                      onClick={() => handleCopyToClipboard(item)}
                     >
                       {item.key === copiedKey ? (
                         <CheckCircleIcon fontSize='inherit' color='success' />

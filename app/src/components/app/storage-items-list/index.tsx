@@ -120,8 +120,8 @@ const StorageItemsList: FC<Props> = ({
         <Grid item xs={12}>
           <StorageItemsTable
             localStorageItems={filteredItems}
-            onDeleteStorageItem={(item: string): void => handleDeleteItem(item)}
-            onEditStorageItem={(item: LocalStorageItem): void => handleEditItem(item)}
+            onDeleteStorageItem={handleDeleteItem}
+            onEditStorageItem={handleEditItem}
           />
         </Grid>
       </Grid>
