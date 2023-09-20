@@ -101,7 +101,7 @@ export const useLocalStorage = () => {
       chrome.tabs.sendMessage(
         activeTab.id!,
         { action: LocalStorageActions.ClearLocalStorage },
-        (response: Response) => {
+        () => {
           if (chrome.runtime.lastError) {
             console.log('Error:', chrome.runtime.lastError.message);
             return;

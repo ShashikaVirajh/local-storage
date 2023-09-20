@@ -42,7 +42,7 @@ const StorageItemsList: FC<Props> = ({
         <Typography variant='h1' color='textSecondary'>
           📦
         </Typography>
-        <Typography variant='subtitle1' color='textSecondary'>
+        <Typography variant='subtitle1' color={theme.colors.text.default} mt={2}>
           {Messages.EmptyLocalStorage}
         </Typography>
       </Box>

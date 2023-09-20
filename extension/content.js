@@ -7,16 +7,19 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
     }
 
     if (action === 'SaveLocalStorageItem') {
+    
         localStorage.setItem(key, value);
         data = JSON.stringify(localStorage);
     }
 
     if (action === 'DeleteLocalStorageItem') {
+       
         localStorage.removeItem(key);
         data = JSON.stringify(localStorage);
     }
 
     if (action === 'ClearLocalStorage') {
+
         localStorage.clear();
         data = JSON.stringify(localStorage);
     }
