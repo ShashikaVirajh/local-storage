@@ -5,7 +5,6 @@ import AddIcon from '@mui/icons-material/Add';
 
 import { Messages } from '../../../constants';
 import { LocalStorageItem } from '../../../types';
-
 import ContentWrapper from '../../ui/content-wrapper';
 import CustomTextInput from '../../ui/custom-text-input';
 import CustomIconButton from '../../ui/custom-icon-button';

@@ -5,7 +5,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { LocalStorageItem } from '../../../types';
 import { Messages } from '../../../constants';
-
 import StorageItemsTable from '../storage-items-table';
 import DeleteConfirmationModal from '../../ui/delete-confirmation-modal';
 import ContentWrapper from '../../ui/content-wrapper';
@@ -121,8 +120,8 @@ const StorageItemsList: FC<Props> = ({
         <Grid item xs={12}>
           <StorageItemsTable
             localStorageItems={filteredItems}
-            onDeleteStorageItem={(item: string): void => handleDeleteItem(item)}
-            onEditStorageItem={(item: LocalStorageItem): void => handleEditItem(item)}
+            onDeleteStorageItem={handleDeleteItem}
+            onEditStorageItem={handleEditItem}
           />
         </Grid>
       </Grid>

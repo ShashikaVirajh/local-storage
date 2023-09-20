@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { Grid, IconButton, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { useTheme } from '@mui/material/styles';
 import { Messages } from '../../../constants';
 import { Tab } from '../../../types';
+import { extractMainUrl, isValidImage } from '../../../utils';
 
 type Props = {
   tab: Tab | null;
@@ -17,26 +18,6 @@ const HeaderContent: FC<Props> = ({ tab }) => {
     window.close();
   };
 
-  const extractMainUrl = (url?: string): string | null => {
-    if (!url) return null;
-
-    const match = url.match(/\/\/(.*?)(\/|$)/);
-
-    if (match && match[1]) {
-      return match[1];
-    } else {
-      console.error(`Could not extract main URL from: ${url}`);
-      return null;
-    }
-  };
-
-  const isValidImage = (imageUrl?: string) => {
-    if (!imageUrl) return false;
-    if (imageUrl.includes('localhost')) return false;
-
-    return true;
-  };
-
   return (
     <Grid container flexDirection='row' justifyContent='space-between' alignItems='center'>
       <Grid item display='flex' alignItems='center' justifyContent='center'>
@@ -44,7 +25,7 @@ const HeaderContent: FC<Props> = ({ tab }) => {
           src='/icons/icon128.png'
           width={28}
           height={28}
-          alt='Tab Icon'
+          alt='Current Page Icon'
           style={{ marginRight: '16px' }}
         />
 

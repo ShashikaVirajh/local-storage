@@ -2,7 +2,6 @@ import { useEffect, FC } from 'react';
 import { Grid } from '@mui/material';
 
 import { useLocalStorage } from './hooks/useLocalStorage';
-
 import AddStorageItem from './components/app/add-storage-item';
 import AppHeader from './components/app/header-content';
 import StorageItemsList from './components/app/storage-items-list';
